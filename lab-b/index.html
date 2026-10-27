@@ -1,14 +1,57 @@
 <!doctype html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Kacper Marciszewski 55816 - AI LAB B</title>
 
-    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link rel="stylesheet" href="styles.css">
     <script src="scripts.js" defer></script>
 </head>
 <body>
+    <main class="todo-app">
+        <h1>Lista zadań</h1>
 
+        <label class="search-field" for="search-input">
+            <span class="visually-hidden">Szukaj zadań</span>
+            <span aria-hidden="true" class="search-icon"></span>
+            <input id="search-input" type="search" placeholder="Szukaj zadań..." autocomplete="off">
+        </label>
+
+        <ul id="task-list" class="task-list" aria-label="Zadania"></ul>
+        <p id="edit-error" class="error-message" aria-live="polite"></p>
+
+        <template id="task-template">
+            <li class="task-row">
+                <span class="task-text"></span>
+                <time class="task-date"></time>
+                <button class="delete-button" type="button" data-action="delete" title="Usuń zadanie">×</button>
+            </li>
+        </template>
+        <template id="edit-template">
+            <li class="task-row is-editing">
+                <input class="edit-text" type="text" aria-label="Treść zadania" minlength="3" maxlength="255">
+                <input class="edit-date" type="datetime-local" aria-label="Termin wykonania">
+                <button class="save-button" type="button" data-action="save">Zapisz</button>
+            </li>
+        </template>
+
+        <form id="task-form" class="task-form" novalidate>
+            <label class="visually-hidden" for="task-input">Treść nowego zadania</label>
+            <input
+                id="task-input"
+                type="text"
+                placeholder="Do zrobienia..."
+                minlength="3"
+                maxlength="255"
+                required
+            >
+            <label class="visually-hidden" for="due-date-input">Termin wykonania</label>
+            <input id="due-date-input" type="datetime-local">
+            <button class="add-button" type="submit">Dodaj</button>
+            <p id="form-error" class="error-message" aria-live="polite"></p>
+        </form>
+    </main>
 </body>
 </html>
+<!-- kod wygenerowany -->
