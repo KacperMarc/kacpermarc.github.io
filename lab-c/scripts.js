@@ -255,6 +255,7 @@ function updateProgress() {
   puzzleProgress.textContent = `Ułożone poprawnie: ${correctPieces}/16`;
   if (correctPieces === 16 && !completionNotified) {
     completionNotified = true;
+    console.debug("Układanka ułożona poprawnie: wszystkie 16 puzzli jest na swoim miejscu.");
     mapStatus.textContent = "Gratulacje! Wszystkie puzzle są na swoim miejscu.";
     if (notificationsEnabled) {
       new Notification("Układanka ułożona!", {
