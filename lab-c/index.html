@@ -1,14 +1,89 @@
 <!doctype html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Imie Nazwisko (00000) - AI LAB C</title>
+    <title>Kacper Marciszewski 55816 - AI LAB C</title>
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="styles.css" type="text/css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+    <script src="https://unpkg.com/leaflet-image@0.4.0/leaflet-image.js" defer></script>
     <script src="scripts.js" defer></script>
 </head>
 <body>
+<main class="app">
+    <header class="page-header">
+        <p class="eyebrow">Laboratorium C</p>
+        <h1>Mapa-puzzle</h1>
+        <p>Wybierz fragment mapy, pobierz go i ułóż z 16 puzzli.</p>
+    </header>
 
+    <section class="panel map-panel" aria-labelledby="map-heading">
+        <p class="eyebrow">1. Wybierz lokalizację i mapę</p>
+        <div class="map-workspace">
+            <div class="map-column">
+                <h2 id="map-heading">Mapa</h2>
+                <div id="map" role="application" aria-label="Interaktywna mapa"></div>
+                <button id="location-button" class="button button-secondary" type="button">Moja lokalizacja</button>
+            </div>
+            <div class="raster-column">
+                <h2>Podgląd rastra</h2>
+                <div class="raster-frame">
+                    <p id="raster-placeholder">Wybierz lokalizację, aby zobaczyć raster mapy.</p>
+                    <img id="raster-preview" alt="Raster aktualnie wybranego fragmentu mapy" hidden>
+                </div>
+                <p class="map-tip">Podgląd aktualizuje się po wybraniu lokalizacji lub pobraniu mapy.</p>
+            </div>
+        </div>
+        <div class="controls">
+            <button id="download-button" class="button button-primary" type="button">Pobierz mapę</button>
+            <button id="notification-button" class="button button-secondary" type="button">Włącz powiadomienia</button>
+        </div>
+        <p id="coordinates" class="coordinates" aria-live="polite">Lokalizacja nie została jeszcze pobrana.</p>
+        <p id="map-status" class="status" role="status" aria-live="polite">Mapa jest gotowa. Zgoda na lokalizację zostanie pobrana po kliknięciu przycisku.</p>
+    </section>
+
+    <section id="puzzle-section" class="panel puzzle-panel" aria-labelledby="puzzle-heading">
+        <div class="section-heading">
+            <div>
+                <p class="eyebrow">2. Ułóż obraz</p>
+                <h2 id="puzzle-heading">Układanka</h2>
+            </div>
+            <p id="puzzle-progress" class="progress" aria-live="polite">Ułożone poprawnie: 0/16</p>
+        </div>
+        <p class="instructions">Po pobraniu mapy jej 16 elementów pojawi się na stole. Przeciągaj je na planszę; możesz też zamieniać miejscami już ułożone elementy.</p>
+        <div class="puzzle-workspace">
+            <div class="puzzle-area">
+                <h3 class="table-heading">Plansza</h3>
+                <div id="puzzle-board" class="puzzle-board" aria-label="Plansza układanki">
+                    <div class="puzzle-slot" data-slot-index="0" aria-label="Pole 1"></div>
+                    <div class="puzzle-slot" data-slot-index="1" aria-label="Pole 2"></div>
+                    <div class="puzzle-slot" data-slot-index="2" aria-label="Pole 3"></div>
+                    <div class="puzzle-slot" data-slot-index="3" aria-label="Pole 4"></div>
+                    <div class="puzzle-slot" data-slot-index="4" aria-label="Pole 5"></div>
+                    <div class="puzzle-slot" data-slot-index="5" aria-label="Pole 6"></div>
+                    <div class="puzzle-slot" data-slot-index="6" aria-label="Pole 7"></div>
+                    <div class="puzzle-slot" data-slot-index="7" aria-label="Pole 8"></div>
+                    <div class="puzzle-slot" data-slot-index="8" aria-label="Pole 9"></div>
+                    <div class="puzzle-slot" data-slot-index="9" aria-label="Pole 10"></div>
+                    <div class="puzzle-slot" data-slot-index="10" aria-label="Pole 11"></div>
+                    <div class="puzzle-slot" data-slot-index="11" aria-label="Pole 12"></div>
+                    <div class="puzzle-slot" data-slot-index="12" aria-label="Pole 13"></div>
+                    <div class="puzzle-slot" data-slot-index="13" aria-label="Pole 14"></div>
+                    <div class="puzzle-slot" data-slot-index="14" aria-label="Pole 15"></div>
+                    <div class="puzzle-slot" data-slot-index="15" aria-label="Pole 16"></div>
+                </div>
+            </div>
+            <div class="puzzle-table-area">
+                <h3 class="table-heading">Stół z puzzlami</h3>
+                <div id="puzzle-table" class="puzzle-table" aria-label="Stół z pomieszanymi puzzlami">
+                    <div class="puzzle-table-placeholder">Pobierz mapę, aby rozsypać tu puzzle.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
 </body>
 </html>
+<!-- kod wygenerowany za pomoca copilot -->
