@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kacper Marciszewski 55816 - AI LAB D</title>
+
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <script src="scripts.js" defer></script>
+</head>
+<body>
+
+<header class="hero">
+    <h1>☁ Pogodynka</h1>
+    <p class="subtitle">Bieżąca pogoda i prognoza 5-dniowa z OpenWeatherMap</p>
+
+    <form id="search-form" class="search" autocomplete="off">
+        <input type="text" id="city-input" placeholder="Wpisz miejscowość, np. Szczecin, PL" required>
+        <button type="submit" id="weather-btn">Pogoda</button>
+    </form>
+    <p id="status" class="status" role="status"></p>
+</header>
+
+<main>
+    <section id="current" class="current" hidden></section>
+
+    <section id="forecast-section" hidden>
+        <h2>Prognoza 5-dniowa</h2>
+        <div id="forecast"></div>
+    </section>
+</main>
+
+<footer>Kacper Marciszewski · 2026</footer>
+
+</body>
+</html>
+<!-- kod wygenerowany za pomoca claude -->
