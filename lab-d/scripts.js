@@ -1,4 +1,4 @@
-const API_KEY = "7ded80d91f2b280ec979100cc8bbba94";
+const API_KEY = "65c30431ee0f039042af4b53ebbaa5ae";
 const BASE_URL = "https://api.openweathermap.org/data/2.5";
 const PARAMS = `units=metric&lang=pl&appid=${API_KEY}`;
 
